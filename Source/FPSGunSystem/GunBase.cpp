@@ -177,6 +177,9 @@ void AGunBase::calculateDamageFalloff()
 void AGunBase::BeginPlay()
 {
 	Super::BeginPlay();
+
+	i_currentAmmoCount= i_magazineSize;
+	i_currentAmmoReserves= i_ammoReserveSize;
 	
 }
 
