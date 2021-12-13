@@ -343,16 +343,16 @@ public:
 
 	//Define On Ground Radius
 	UFUNCTION(BlueprintCallable, Category= "Gun Functions")
-		virtual void defineOnGroundRadius(float f_coneAngle);
+		virtual void defineOnGroundRadius(float f_passedConeAngle);
 
 	//Define In Air Radius
 	UFUNCTION(BlueprintCallable, Category= "Gun Functions")
-		virtual void defineInAirRadius(float f_coneAngle);
+		virtual void defineInAirRadius(float f_passedConeAngle);
 	//Rotation on Y and Z axes will be local variables to the function
 
 	//Define Y and Z points
 	UFUNCTION(BlueprintCallable, Category= "Gun Functions")
-		virtual void setCartesianCoordinates(int i_currentWedgeIndex);
+		virtual void setCartesianCoordinates(int i_currentWedgeIndex, float f_lowerRadiusBound, float f_upperRadiusBound);
 
 	//Calculate Damage Falloff
 	UFUNCTION(BlueprintCallable, Category= "Gun Functions")

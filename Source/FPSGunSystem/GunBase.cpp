@@ -72,23 +72,33 @@ void AGunBase::reload()
 }
 
 //Define On Ground Radius Function
-void AGunBase::defineOnGroundRadius(float f_coneAngle)
+void AGunBase::defineOnGroundRadius(float f_passedConeAngle)
 {
 	//cut total cone angle in half to get right angle
-	f_currentTotalConeAngle= f_coneAngle / 2;
+	f_currentTotalConeAngle= f_passedConeAngle / 2;
 
 	//use tan to find max inside radius length
 	f_insideConeRadius= f_circleProjectionDistanceFromBarrel*  (tan(f_currentTotalConeAngle));
 
 	//multiply by 2 to get max outside radius length
 	f_outsideConeRadius= f_outsideConeRadius * 2;
+
+	//debug -
+	
+	FString testFloat1= FString::SanitizeFloat(f_passedConeAngle);
+	if (GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0, FColor::Blue, *testFloat1);
+	}
+	//end debug -
+	
 }
 
 //Define In Air Radius Function
-void AGunBase::defineInAirRadius(float f_coneAngle)
+void AGunBase::defineInAirRadius(float f_passedConeAngle)
 {
 	//cut total cone angle in half to get right angle
-	f_currentTotalADSConeAngle= f_coneAngle / 2;
+	f_currentTotalConeAngle= f_passedConeAngle/ 2;
 
 	//use tan to find max radius length
 	f_insideConeRadius= f_circleProjectionDistanceFromBarrel *  f_inAirConeAngleMultiplier * (tan(f_currentTotalConeAngle));
@@ -98,7 +108,7 @@ void AGunBase::defineInAirRadius(float f_coneAngle)
 }
 
 //Define Y and Z points
-void AGunBase::setCartesianCoordinates(int i_currentWedgeIndex)
+void AGunBase::setCartesianCoordinates(int i_currentWedgeIndex, float f_lowerRadiusBound, float f_upperRadiusBound)
 {
 	//Set random point polar coordinates
 
@@ -107,7 +117,7 @@ void AGunBase::setCartesianCoordinates(int i_currentWedgeIndex)
 	float f_angleAtPoint= FMath::RandRange(i*i_currentWedgeIndex, i*(i_currentWedgeIndex+1));
 
 	//set point radius polar coordinate (Only 0, issue with f_insideConeRadius)
-	float f_radiusAtPoint= FMath::RandRange(0.0, f_insideConeRadius);
+	float f_radiusAtPoint= FMath::RandRange(f_lowerRadiusBound, f_upperRadiusBound);
 
 	//Convert to Cartesian
 
@@ -115,26 +125,26 @@ void AGunBase::setCartesianCoordinates(int i_currentWedgeIndex)
 	f_pointYCoordinate= cos(f_angleAtPoint) * f_radiusAtPoint;
 
 	//debug -
-
-	FString testFloat1= FString::SanitizeFloat(f_pointYCoordinate);
+	/*
+	FString testFloat1= FString::SanitizeFloat(f_insideConeRadius);
 	if (GEngine)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 15.0, FColor::Blue, *testFloat1);
 	}
 	//end debug -
-
+	*/
 	//Set point Z value
 	f_pointZCoordinate= sin(f_angleAtPoint) * f_radiusAtPoint;
 
 	//debug --
-
-	FString testFloat2= FString::SanitizeFloat(f_pointZCoordinate);
+	/*
+	FString testFloat2= FString::SanitizeFloat(f_radiusAtPoint);
 	if (GEngine)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 15.0, FColor::Red, *testFloat2);
 	}
 	//end debug --
-
+	*/
 }
 
 //Define Firing Rotator
@@ -180,6 +190,9 @@ void AGunBase::BeginPlay()
 
 	i_currentAmmoCount= i_magazineSize;
 	i_currentAmmoReserves= i_ammoReserveSize;
+
+	f_currentTotalConeAngle= f_totalHipfireConeAngle;
+	f_currentTotalADSConeAngle= f_totalADSConeAngle;
 	
 }
 
