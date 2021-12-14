@@ -75,33 +75,35 @@ void AGunBase::reload()
 void AGunBase::defineOnGroundRadius(float f_passedConeAngle)
 {
 	//cut total cone angle in half to get right angle
-	f_currentTotalConeAngle= f_passedConeAngle / 2;
+	float f_tempConeAngle = f_passedConeAngle / 2;
 
 	//use tan to find max inside radius length
-	f_insideConeRadius= f_circleProjectionDistanceFromBarrel*  (tan(f_currentTotalConeAngle));
+	f_insideConeRadius= f_circleProjectionDistanceFromBarrel*  (tan(f_tempConeAngle));
 
 	//multiply by 2 to get max outside radius length
 	f_outsideConeRadius= f_outsideConeRadius * 2;
 
+#if WITH_EDITOR
 	//debug -
-	
+	/*
 	FString testFloat1= FString::SanitizeFloat(f_passedConeAngle);
 	if (GEngine)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 15.0, FColor::Blue, *testFloat1);
 	}
 	//end debug -
-	
+	*/
+#endif
 }
 
 //Define In Air Radius Function
 void AGunBase::defineInAirRadius(float f_passedConeAngle)
 {
 	//cut total cone angle in half to get right angle
-	f_currentTotalConeAngle= f_passedConeAngle/ 2;
+	float f_tempConeAngle= f_passedConeAngle/ 2;
 
 	//use tan to find max radius length
-	f_insideConeRadius= f_circleProjectionDistanceFromBarrel *  f_inAirConeAngleMultiplier * (tan(f_currentTotalConeAngle));
+	f_insideConeRadius= f_circleProjectionDistanceFromBarrel *  f_inAirConeAngleMultiplier * (tan(f_tempConeAngle));
 
 	//multiply by 2 to get max outside radius length
 	f_outsideConeRadius= f_outsideConeRadius * 2;
@@ -124,27 +126,25 @@ void AGunBase::setCartesianCoordinates(int i_currentWedgeIndex, float f_lowerRad
 	//Set point Y Value
 	f_pointYCoordinate= cos(f_angleAtPoint) * f_radiusAtPoint;
 
+	//Set point Z value
+	f_pointZCoordinate= sin(f_angleAtPoint) * f_radiusAtPoint;
+
+#if WITH_EDITOR
 	//debug -
-	/*
-	FString testFloat1= FString::SanitizeFloat(f_insideConeRadius);
+
+	FString testFloat1= FString::SanitizeFloat(cos(f_angleAtPoint));
 	if (GEngine)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 15.0, FColor::Blue, *testFloat1);
 	}
-	//end debug -
-	*/
-	//Set point Z value
-	f_pointZCoordinate= sin(f_angleAtPoint) * f_radiusAtPoint;
-
-	//debug --
-	/*
-	FString testFloat2= FString::SanitizeFloat(f_radiusAtPoint);
+	FString testFloat2= FString::SanitizeFloat(sin(f_angleAtPoint));
 	if (GEngine)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0, FColor::Red, *testFloat2);
+		GEngine->AddOnScreenDebugMessage(-1, 15.0, FColor::Red, *testFloat1);
 	}
-	//end debug --
-	*/
+	//end debug -
+#endif
+
 }
 
 //Define Firing Rotator
