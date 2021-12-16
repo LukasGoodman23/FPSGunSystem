@@ -71,47 +71,33 @@ void AGunBase::reload()
 	}
 }
 
-//Define On Ground Radius Function
+//Define On Ground Radius Function WORKS
 void AGunBase::defineOnGroundRadius(float f_passedConeAngle)
 {
 	//cut total cone angle in half to get right angle
 	float f_tempConeAngle = (f_passedConeAngle / 2);
-	//THE PROBLEM!!!!!!!!!!!!!!!!!!!!
-	//heres the problem, not actually dividing by 2
 
 	//use tan to find max inside radius length
-	f_insideConeRadius= f_circleProjectionDistanceFromBarrel * tan(f_tempConeAngle);
+	f_insideConeRadius= f_circleProjectionDistanceFromBarrel * tan(FMath::DegreesToRadians(f_tempConeAngle));
 
 	//multiply by 2 to get max outside radius length
-	f_outsideConeRadius= f_outsideConeRadius * 2;
-
-#if WITH_EDITOR
-	//print the generated angle
-	FString f_testFloat1;
-	f_testFloat1= FString::SanitizeFloat(tan(f_tempConeAngle));
-	GEngine->AddOnScreenDebugMessage(-1, 15.0, FColor::Blue, f_testFloat1);
-
-	//print the generated angle
-	FString f_testFloat2;
-	f_testFloat2= FString::SanitizeFloat(tan(f_passedConeAngle));
-	GEngine->AddOnScreenDebugMessage(-1, 15.0, FColor::Red, f_testFloat2);
-#endif
+	f_outsideConeRadius= f_insideConeRadius * 2;
 }
 
-//Define In Air Radius Function
+//Define In Air Radius Function WORKS
 void AGunBase::defineInAirRadius(float f_passedConeAngle)
 {
 	//cut total cone angle in half to get right angle
 	float f_tempConeAngle= f_passedConeAngle/ 2;
 
 	//use tan to find max radius length
-	f_insideConeRadius= f_circleProjectionDistanceFromBarrel *  f_inAirConeAngleMultiplier * (tan(f_tempConeAngle));
+	f_insideConeRadius= f_circleProjectionDistanceFromBarrel *  f_inAirConeAngleMultiplier * (tan(FMath::DegreesToRadians(f_tempConeAngle)));
 
 	//multiply by 2 to get max outside radius length
 	f_outsideConeRadius= f_outsideConeRadius * 2;
 }
 
-//Define Y and Z points WORKS
+//Define Y and Z points
 void AGunBase::setCartesianCoordinates(int i_currentWedgeIndex, float f_lowerRadiusBound, float f_upperRadiusBound)
 {
 	//Set random point polar coordinates
@@ -132,21 +118,35 @@ void AGunBase::setCartesianCoordinates(int i_currentWedgeIndex, float f_lowerRad
 	f_pointZCoordinate= sin(FMath::DegreesToRadians(f_angleAtPoint)) * f_radiusAtPoint;
 }
 
-//Define Firing Rotator WORKS
+//Define Firing Rotator
 void AGunBase::setFiringRotator()
 {
 	//find z axis rotation
-	float f_RotationOnZAxis= atan2(f_pointYCoordinate, f_circleProjectionDistanceFromBarrel);
+	float f_RotationOnZAxis= FMath::RadiansToDegrees(atan2(f_pointYCoordinate, f_circleProjectionDistanceFromBarrel));
 
 	//find new length to projection point
 	float f_newCircleProjectionDistanceFromBarrel= sqrt(FMath::Square(f_pointYCoordinate) + FMath::Square(f_circleProjectionDistanceFromBarrel));
 
 	//find y axis rotation
-	float f_RotationOnYAxis= atan2(f_pointYCoordinate, f_newCircleProjectionDistanceFromBarrel);
+	float f_RotationOnYAxis= FMath::RadiansToDegrees(atan2(f_pointZCoordinate, f_newCircleProjectionDistanceFromBarrel));
 
 	//gives correct rotation (except maybe yaw is inverted)
-	r_shotDirectionRotator.Yaw= f_RotationOnZAxis;
-	r_shotDirectionRotator.Pitch= f_RotationOnYAxis;
+	//r_shotDirectionRotator.Pitch= f_RotationOnZAxis;
+	//r_shotDirectionRotator.Yaw= f_RotationOnYAxis;
+	r_shotDirectionRotator= FRotator(f_RotationOnYAxis, f_RotationOnZAxis, 0);
+
+#if WITH_EDITOR
+	//print the generated angle
+	FString f_testFloat1;
+	f_testFloat1= FString::SanitizeFloat(f_RotationOnZAxis);
+	GEngine->AddOnScreenDebugMessage(-1, 15.0, FColor::Blue, f_testFloat1);
+
+	//print the generated angle
+	FString f_testFloat2;
+	f_testFloat2= FString::SanitizeFloat(f_RotationOnYAxis);
+	GEngine->AddOnScreenDebugMessage(-1, 15.0, FColor::Red, f_testFloat2);
+
+#endif
 }
 
 //Calculate Damage Falloff
