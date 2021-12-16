@@ -71,7 +71,7 @@ void AGunBase::reload()
 	}
 }
 
-//Define On Ground Radius Function WORKS
+//Define On Ground Radius Function
 void AGunBase::defineOnGroundRadius(float f_passedConeAngle)
 {
 	//cut total cone angle in half to get right angle
@@ -84,7 +84,7 @@ void AGunBase::defineOnGroundRadius(float f_passedConeAngle)
 	f_outsideConeRadius= f_insideConeRadius * 2;
 }
 
-//Define In Air Radius Function WORKS
+//Define In Air Radius Function
 void AGunBase::defineInAirRadius(float f_passedConeAngle)
 {
 	//cut total cone angle in half to get right angle
@@ -106,8 +106,10 @@ void AGunBase::setCartesianCoordinates(int i_currentWedgeIndex, float f_lowerRad
 	int i= 360/i_NumberOfInsideAimWedges;
 	float f_angleAtPoint= FMath::RandRange((i*i_currentWedgeIndex), (i*(i_currentWedgeIndex+1)));
 
-	//set point radius polar coordinate (Only 0, issue with f_insideConeRadius)
+	//set point radius polar coordinate
 	float f_radiusAtPoint= FMath::RandRange(FMath::FloorToInt(f_lowerRadiusBound), FMath::FloorToInt(f_upperRadiusBound));
+
+
 
 	//Convert to Cartesian
 
@@ -130,23 +132,8 @@ void AGunBase::setFiringRotator()
 	//find y axis rotation
 	float f_RotationOnYAxis= FMath::RadiansToDegrees(atan2(f_pointZCoordinate, f_newCircleProjectionDistanceFromBarrel));
 
-	//gives correct rotation (except maybe yaw is inverted)
-	//r_shotDirectionRotator.Pitch= f_RotationOnZAxis;
-	//r_shotDirectionRotator.Yaw= f_RotationOnYAxis;
+	//Apply to rotator
 	r_shotDirectionRotator= FRotator(f_RotationOnYAxis, f_RotationOnZAxis, 0);
-
-#if WITH_EDITOR
-	//print the generated angle
-	FString f_testFloat1;
-	f_testFloat1= FString::SanitizeFloat(f_RotationOnZAxis);
-	GEngine->AddOnScreenDebugMessage(-1, 15.0, FColor::Blue, f_testFloat1);
-
-	//print the generated angle
-	FString f_testFloat2;
-	f_testFloat2= FString::SanitizeFloat(f_RotationOnYAxis);
-	GEngine->AddOnScreenDebugMessage(-1, 15.0, FColor::Red, f_testFloat2);
-
-#endif
 }
 
 //Calculate Damage Falloff
@@ -154,16 +141,19 @@ void AGunBase::calculateDamageFalloff()
 {
 	if (f_shotDistance > f_falloffEnd)
 	{
+		//if shot distance is past max, does no damage
 		i_appliedDamage= 0;
 	}
 	else
 	{
 		if (f_shotDistance <= f_falloffStart)
 		{
+			//if shot distance is before falloff start do max damage
 			i_appliedDamage= i_baseDamage;
 		}
 		else
 		{
+			//if shot distance is past start and before end, do damage with linear falloff
 			i_appliedDamage= FGenericPlatformMath::TruncToInt(i_baseDamage * (1-((f_shotDistance-f_falloffStart)/(f_falloffEnd-f_falloffStart))));
 		}
 	}
