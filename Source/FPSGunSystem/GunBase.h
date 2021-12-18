@@ -162,6 +162,10 @@ public:
 
 	//Cone Calculation Variables
 
+	//Aim Assist Cone Angle
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Cone Calculation Variables")
+		float f_aimAssistConeAngle= 0;
+
 	//Total Hipfire Cone Angle Float
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Cone Calculation Variables")
 		float f_totalHipfireConeAngle= 0;
@@ -348,7 +352,6 @@ public:
 	//Define In Air Radius
 	UFUNCTION(BlueprintCallable, Category= "Gun Functions")
 		virtual void defineInAirRadius(float f_passedConeAngle);
-	//Rotation on Y and Z axes will be local variables to the function
 
 	//Define Y and Z points
 	UFUNCTION(BlueprintCallable, Category= "Gun Functions")
@@ -359,6 +362,7 @@ public:
 		virtual void calculateDamageFalloff();
 
 	//Define Firing Rotator
+	//Rotation on Y and Z axes will be local variables to the function
 	UFUNCTION(BlueprintCallable, Category= "Gun Functions")
 		virtual void setFiringRotator();
 
