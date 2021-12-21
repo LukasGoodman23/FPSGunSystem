@@ -26,7 +26,7 @@ public:
 
 	//Impact Damage Int
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Projectile Variables")
-		int i_impactDamage= 0;
+		int i_projectileImpactDamage= 0;
 
 	//Max Explosive Damage Int
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Projectile Variables")
@@ -38,7 +38,7 @@ public:
 
 	//Explosion Appearance Radius Float
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Projectile Variables")
-		float f_explosionAppearanceRadius= 0;
+		float f_explosionAppearanceScale= 0;
 
 	//Explosion Appearance
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Projectile Variables")
