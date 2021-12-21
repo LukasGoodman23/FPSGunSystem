@@ -26,11 +26,11 @@ public:
 
 	//Impact Damage Int
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Projectile Variables")
-		int i_impactDamage= 0;
+		int i_projectileImpactDamage= 0;
 
 	//Max Explosive Damage Int
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Projectile Variables")
-		int i_maxExplosiveDamage= 0;
+		int i_explosionMaxDamage= 0;
 
 	//Explosion Effect Radius Float
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Projectile Variables")
@@ -38,7 +38,7 @@ public:
 
 	//Explosion Appearance Radius Float
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Projectile Variables")
-		float f_explosionAppearanceRadius= 0;
+		float f_explosionAppearanceScale= 0;
 
 	//Explosion Appearance
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Projectile Variables")
@@ -65,10 +65,6 @@ public:
 	//Projectile Collision
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Components")
 		class USphereComponent *projectileCollision;
-
-	//Projectile Static Mesh
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Components")
-		class UStaticMeshComponent *projectileMesh;
 
 	//Projectile Movement Component
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Components")

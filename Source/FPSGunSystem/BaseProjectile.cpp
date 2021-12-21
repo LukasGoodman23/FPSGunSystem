@@ -9,17 +9,9 @@ ABaseProjectile::ABaseProjectile()
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	//Set Up Default Scene Root
-	DefaultSceneRoot= CreateDefaultSubobject<USceneComponent>(TEXT("Default Scene Component"));
-	RootComponent= DefaultSceneRoot;
-
 	//Set Up Collision Component
 	projectileCollision= CreateDefaultSubobject<USphereComponent>(TEXT("Projectile Collision Component"));
 	projectileCollision->SetupAttachment(RootComponent);
-
-	//Set Up Mesh
-	projectileMesh= CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Arms"));
-	projectileMesh->SetupAttachment(RootComponent);
 
 	//Set Up Movement Component
 	projectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovementComponent"));
