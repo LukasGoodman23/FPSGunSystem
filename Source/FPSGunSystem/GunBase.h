@@ -100,7 +100,7 @@ public:
 
 	//Projectile First Person Projectile Class Reference
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Variables")
-		TSubclassOf<class AbaseProjectile> projectile;
+		TSubclassOf<class ABaseProjectile> projectile;
 
 	//Projectile Firing Direction Rotator
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Variables")
@@ -155,6 +155,10 @@ public:
 	//Explosion Sound
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Explosion Variables")
 		class USoundBase *soundO_explosionSound;
+
+	//Impact Damage
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Explosion Variables")
+		int i_impactMaxDamage= 0;
 
 
 
