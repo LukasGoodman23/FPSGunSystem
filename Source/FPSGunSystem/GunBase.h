@@ -240,9 +240,17 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Falloff Calculation Variables")
 		float f_falloffStart= 0;
 
+	//Effective Falloff Start Float
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Falloff Calculation Variables")
+		float f_effectiveFalloffStart= 0;
+
 	//Falloff End Float
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Falloff Calculation Variables")
 		float f_falloffEnd= 0;
+
+	//Effective Falloff End Float
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Falloff Calculation Variables")
+		float f_effectiveFalloffEnd= 0;
 
 	//Shot Distance Float
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Falloff Calculation Variables")
@@ -259,19 +267,19 @@ public:
 	//Gun Stats Calculation
 
 	//Range Stat Int
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Falloff Calculation Variables")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
 		int i_range= 0;
 
 	//Impact Stat Int
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Falloff Calculation Variables")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
 		int i_impact= 0;
 
 	//Max Range Multiplier float
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Falloff Calculation Variables")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
 		float f_maxRangeMultiplier= 0;
 
 	//Max Impact Multiplier
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Falloff Calculation Variables")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
 		float f_maxImpactMultiplier= 0;
 
 
@@ -369,6 +377,11 @@ public:
 	//Rotation on Y and Z axes will be local variables to the function
 	UFUNCTION(BlueprintCallable, Category= "Gun Functions")
 		virtual void setFiringRotator();
+
+	//Apply Gun Stat Effects
+	//Range
+	UFUNCTION(BlueprintCallable, Category= "Gun Functions")
+		virtual void applyStats();
 
 
 

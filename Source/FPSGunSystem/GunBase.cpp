@@ -139,25 +139,35 @@ void AGunBase::setFiringRotator()
 //Calculate Damage Falloff
 void AGunBase::calculateDamageFalloff()
 {
-	if (f_shotDistance > f_falloffEnd)
+	if (f_shotDistance > f_effectiveFalloffEnd)
 	{
 		//if shot distance is past max, does no damage
 		i_appliedDamage= 0;
 	}
 	else
 	{
-		if (f_shotDistance <= f_falloffStart)
-		{
-			//if shot distance is before falloff start do max damage
-			i_appliedDamage= i_baseDamage;
-		}
-		else
-		{
-			//if shot distance is past start and before end, do damage with linear falloff
-			i_appliedDamage= FGenericPlatformMath::TruncToInt(i_baseDamage * (1-((f_shotDistance-f_falloffStart)/(f_falloffEnd-f_falloffStart))));
-		}
+		//if shot distance is past start and before end, do damage with linear falloff
+		i_appliedDamage= FGenericPlatformMath::TruncToInt(i_appliedDamage * (1-((f_shotDistance-f_effectiveFalloffStart)/(f_effectiveFalloffEnd-f_effectiveFalloffStart))));
 	}
 }
+
+//Apply Gun Stat Effects
+void AGunBase::applyStats()
+{
+	int i_tempStat= 0;
+
+	i_tempStat= (i_range - 50);
+
+	f_effectiveFalloffStart= f_falloffStart * 1.0 + f_falloffStart * .2 * float(i_tempStat);
+
+	f_effectiveFalloffEnd= f_falloffEnd * 1.0 + f_falloffEnd * .2 * float(i_tempStat);
+
+	i_tempStat= (i_impact - 50);
+
+	i_appliedDamage= FGenericPlatformMath::TruncToInt(float(i_baseDamage) * 1.0 + float(i_baseDamage) * .2 * float(i_tempStat));
+}
+
+
 
 // Called when the game starts or when spawned
 void AGunBase::BeginPlay()
