@@ -154,17 +154,24 @@ void AGunBase::calculateDamageFalloff()
 //Apply Gun Stat Effects
 void AGunBase::applyStats()
 {
+	//temp variable for calculations
 	int i_tempStat= 0;
 
+	//Range
 	i_tempStat= (i_range - 50);
 
-	f_effectiveFalloffStart= f_falloffStart * 1.0 + f_falloffStart * .2 * float(i_tempStat);
+	//Adjust Falloff Start
+	f_effectiveFalloffStart= f_falloffStart * 1.0 + f_falloffStart * .2 * (float(i_tempStat)/50);
+	//Adjust Falloff End
+	f_effectiveFalloffEnd= f_falloffEnd * 1.0 + f_falloffEnd * .2 * (float(i_tempStat)/50);
+	//Adjust Aim Assist Cone
+	f_effectiveAimAssistConeAngle= f_aimAssistConeAngle * 1.0 + f_aimAssistConeAngle * .2 * (float(i_tempStat)/50);
 
-	f_effectiveFalloffEnd= f_falloffEnd * 1.0 + f_falloffEnd * .2 * float(i_tempStat);
-
+	//Impact
 	i_tempStat= (i_impact - 50);
 
-	i_appliedDamage= FGenericPlatformMath::TruncToInt(float(i_baseDamage) * 1.0 + float(i_baseDamage) * .2 * float(i_tempStat));
+	//Adjust Damage
+	i_appliedDamage= FGenericPlatformMath::TruncToInt(float(i_baseDamage) * 1.0 + float(i_baseDamage) * .2 * (float(i_tempStat)/50));
 }
 
 

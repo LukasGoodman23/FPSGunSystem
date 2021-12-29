@@ -130,6 +130,10 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Variables")
 		int i_baseDamage= 0;
 
+	//Applied Damage Int
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Variables")
+		int i_appliedDamage= 0;
+
 
 
 
@@ -169,6 +173,10 @@ public:
 	//Aim Assist Cone Angle
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Cone Calculation Variables")
 		float f_aimAssistConeAngle= 0;
+
+	//Applied Aim Assist Cone Angle
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Cone Calculation Variables")
+		float f_effectiveAimAssistConeAngle= 0;
 
 	//Total Hipfire Cone Angle Float
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Cone Calculation Variables")
@@ -255,10 +263,6 @@ public:
 	//Shot Distance Float
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Falloff Calculation Variables")
 		float f_shotDistance= 0;
-
-	//Applied Damage Int
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Falloff Calculation Variables")
-		int i_appliedDamage= 0;
 
 
 
