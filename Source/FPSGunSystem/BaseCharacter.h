@@ -27,6 +27,20 @@ public:
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category= "Base Character")
 		bool b_canAffectHealth= true;
 
+	//Amount of slow int
+	UPROPERTY(BLueprintReadWrite, EditAnywhere, Category= "Base Character")
+		int i_slowAmount= 0;
+
+	//Amount of slow int
+	UPROPERTY(BLueprintReadWrite, EditAnywhere, Category= "Base Character")
+		bool b_isFrozen= false;
+
+
+
+
+
+	//Functions
+
 	//isDead helper function
 	virtual void calculateDead();
 
@@ -36,6 +50,31 @@ public:
 
 	//canAffectHealth helper function
 	virtual void calculateCanAffectHealth();
+
+	//Suppress function
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category= "Character Effects")
+		void suppress();
+
+	//Burn function
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category= "Character Effects")
+		void burn(int i_numTicks, int i_burnDamage);
+
+	//Arc Web function
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category= "Character Effects")
+		void arcWeb(int i_arcDamage);
+
+	//Slow function
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category= "Character Effects")
+		void slow(int i_amountOfSlowApplied);
+
+	//Freeze function
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category= "Character Effects")
+		void freeze();
+
+
+
+
+
 
 	//editor only code
 #if WITH_EDITOR
