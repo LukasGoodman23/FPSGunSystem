@@ -50,7 +50,11 @@ void ABaseCharacter::calculateHealth(int i_minusDamage)
 // Implement Calculate Dead
 void ABaseCharacter::calculateDead()
 {
-	if (i_health <= 0) { b_isDead= true; }
+	if (i_health <= 0) 
+	{ 
+		b_isDead= true; 
+		//malfeasanceExplosions();
+	}
 	else { b_isDead= false; }
 }
 
@@ -58,6 +62,21 @@ void ABaseCharacter::calculateCanAffectHealth()
 {
 	if (b_isDead == true) { b_canAffectHealth= false; }
 	else { b_canAffectHealth= true; }
+}
+
+void ABaseCharacter::addMalfeasanceStack()
+{
+	if (i_stacksOfMalfeasance < 5)
+	{
+		//add a stack of malfeasance
+		i_stacksOfMalfeasance++;
+
+		//if more than 5 stacks explode the stacks
+		if (i_stacksOfMalfeasance >= 5)
+		{
+			malfeasanceExplosions();
+		}
+	}
 }
 
 #if WITH_EDITOR

@@ -383,9 +383,12 @@ public:
 		virtual void setFiringRotator();
 
 	//Apply Gun Stat Effects
-	//Range
 	UFUNCTION(BlueprintCallable, Category= "Gun Functions")
 		virtual void applyStats();
+
+	//Event onhit
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category= "Gun Functions")
+		void eventOnHit(ABaseCharacter *inCharacter);
 
 
 
