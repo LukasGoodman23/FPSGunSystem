@@ -3,6 +3,8 @@
 
 #include "BaseCharacter.h"
 
+//test difference for github
+
 // Sets default values
 ABaseCharacter::ABaseCharacter()
 {
