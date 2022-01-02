@@ -278,13 +278,26 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
 		int i_impact= 0;
 
+	//Blast Radius Stat Int
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
+		int i_blastRadius= 0;
+
+	//Velocity Stat Int
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
+		int i_velocity= 0;
+
 	//Max Range Multiplier float
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
 		float f_maxRangeMultiplier= 0;
 
+	//Max Aim Assist Multiplier float
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
+		float f_maxAimAssistMultiplier= 0;
+
 	//Max Impact Multiplier
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
 		float f_maxImpactMultiplier= 0;
+
 
 
 
