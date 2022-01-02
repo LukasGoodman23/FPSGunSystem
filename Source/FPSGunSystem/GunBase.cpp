@@ -157,21 +157,24 @@ void AGunBase::applyStats()
 	//temp variable for calculations
 	int i_tempStat= 0;
 
-	//Range
+	//Range---
 	i_tempStat= (i_range - 50);
 
 	//Adjust Falloff Start
-	f_effectiveFalloffStart= f_falloffStart * 1.0 + f_falloffStart * .2 * (float(i_tempStat)/50);
+	f_effectiveFalloffStart= f_falloffStart * 1.0 + f_falloffStart * (f_maxRangeMultiplier - 1.0) * (float(i_tempStat)/50);
 	//Adjust Falloff End
-	f_effectiveFalloffEnd= f_falloffEnd * 1.0 + f_falloffEnd * .2 * (float(i_tempStat)/50);
+	f_effectiveFalloffEnd= f_falloffEnd * 1.0 + f_falloffEnd * (f_maxRangeMultiplier - 1.0) * (float(i_tempStat)/50);
 	//Adjust Aim Assist Cone
-	f_effectiveAimAssistConeAngle= f_aimAssistConeAngle * 1.0 + f_aimAssistConeAngle * .2 * (float(i_tempStat)/50);
+	f_effectiveAimAssistConeAngle= f_aimAssistConeAngle * 1.0 + f_aimAssistConeAngle * (f_maxAimAssistMultiplier - 1.0) * (float(i_tempStat)/50);
 
-	//Impact
+	//Impact---
 	i_tempStat= (i_impact - 50);
 
 	//Adjust Damage
-	i_appliedDamage= FGenericPlatformMath::TruncToInt(float(i_baseDamage) * 1.0 + float(i_baseDamage) * .2 * (float(i_tempStat)/50));
+	i_appliedDamage= FGenericPlatformMath::TruncToInt(float(i_baseDamage) * 1.0 + float(i_baseDamage) * (f_maxImpactMultiplier - 1.0) * (float(i_tempStat)/50));
+
+	//Explosion Radius
+	i_tempStat= (i_blastRadius - 50);
 }
 
 
