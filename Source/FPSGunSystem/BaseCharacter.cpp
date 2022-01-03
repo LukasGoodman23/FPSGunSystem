@@ -53,14 +53,17 @@ void ABaseCharacter::calculateDead()
 	if (i_health <= 0) 
 	{
 		b_isDead= true;
-		malfeasanceExplosions();
 	}
 	else { b_isDead= false; }
 }
 
 void ABaseCharacter::calculateCanAffectHealth()
 {
-	if (b_isDead == true) { b_canAffectHealth= false; }
+	if (b_isDead == true) 
+	{
+		b_canAffectHealth= false; 
+		malfeasanceExplosions();
+	}
 	else { b_canAffectHealth= true; }
 }
 
