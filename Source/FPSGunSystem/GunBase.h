@@ -400,6 +400,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category= "Gun Functions")
 		virtual void applyStats();
 
+	//OnHit effects
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category= "Gun Functions")
+		void onHit(ABaseCharacter *inCharacter);
+
 
 
 

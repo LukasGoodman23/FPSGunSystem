@@ -31,9 +31,13 @@ public:
 	UPROPERTY(BLueprintReadWrite, EditAnywhere, Category= "Base Character")
 		int i_slowAmount= 0;
 
-	//Amount of slow int
+	//Amount of slow Int
 	UPROPERTY(BLueprintReadWrite, EditAnywhere, Category= "Base Character")
 		bool b_isFrozen= false;
+
+	//Malfeasance Stacks Int
+	UPROPERTY(BLueprintReadWrite, EditAnywhere, Category= "Base Character")
+		int i_stacksOfMalfeasance= 0;
 
 
 
@@ -70,6 +74,14 @@ public:
 	//Freeze function
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category= "Character Effects")
 		void freeze();
+
+	//Add Malfeasance Stack and check for 5+ stacks
+	UFUNCTION(BlueprintCallable, Category= "Base Character")
+		virtual void addMalfeasanceStack();
+
+	//Explode Malfeasance Shots
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category= "Character Effects")
+		void malfeasanceExplosions();
 
 
 
