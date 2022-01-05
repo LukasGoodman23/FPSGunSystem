@@ -305,25 +305,29 @@ public:
 	
 	//Perk Variables
 
+	//Mod
+	/*UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Perk Variables")
+		class UBasePerk *Archetype;
+
 	//Barrel Perk
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Perk Variables")
-		TSubclassOf<class UBasePerk> BarrelPerk;
+		class UBasePerk *BarrelPerk;
 
 	//Magazine Perk
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Perk Variables")
-		TSubclassOf<class UBasePerk> MagazinePerk;
+		class UBasePerk *MagazinePerk;
 
 	//Final Perk 1
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Perk Variables")
-		TSubclassOf<class UBasePerk> FinalPerk1;
+		class UBasePerk *FinalPerk1;
 
 	//Final Perk 2
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Perk Variables")
-		TSubclassOf<class UBasePerk> FinalPerk2;
+		class UBasePerk *FinalPerk2;
 
 	//Mod
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Perk Variables")
-		TSubclassOf<class UBasePerk> Mod;
+		class UBasePerk *Mod;*/
 
 
 
