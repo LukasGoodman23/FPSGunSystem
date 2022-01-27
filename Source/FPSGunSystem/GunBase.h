@@ -302,6 +302,24 @@ public:
 
 
 
+	//Recoil Variables
+
+	//Shoulder Rotator Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_shoulderRotator = FRotator::ZeroRotator;
+
+	//Elbow Rotator Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_elbowRotator = FRotator::ZeroRotator;
+
+	//Wrist Rotator Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_wristRotator = FRotator::ZeroRotator;
+
+
+
+
+
 	
 	//Perk Variables
 
