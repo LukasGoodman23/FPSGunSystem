@@ -236,7 +236,7 @@ public:
 
 	//Shot Direction Rotator Struct
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Cone Calculation Variables")
-		struct FRotator r_shotDirectionRotator = FRotator::ZeroRotator;
+		struct FRotator r_shotDirectionRotator= FRotator::ZeroRotator;
 
 
 
@@ -304,18 +304,33 @@ public:
 
 	//Recoil Variables
 
+	//Number of Repeated Recoils
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		int i_numberOfRecoils= 0;
+
 	//Shoulder Rotator Struct
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
-		struct FRotator r_shoulderRotator = FRotator::ZeroRotator;
+		struct FRotator r_shoulderRotator= FRotator::ZeroRotator;
 
 	//Elbow Rotator Struct
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
-		struct FRotator r_elbowRotator = FRotator::ZeroRotator;
+		struct FRotator r_elbowRotator= FRotator::ZeroRotator;
 
 	//Wrist Rotator Struct
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
-		struct FRotator r_wristRotator = FRotator::ZeroRotator;
+		struct FRotator r_wristRotator= FRotator::ZeroRotator;
 
+	//Max Shoulder Rotation Multiplier
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_maxShoulderRotation= FRotator(0.0f, 0.0f, 0.0f);
+
+	//Max Elbow Rotation Multiplier
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_maxElbowRotation= FRotator(0.0f, 0.0f, 0.0f);
+
+	//Max Wrist Rotation Multiplier
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_maxWristRotation= FRotator(0.0f, 0.0f, 0.0f);
 
 
 
