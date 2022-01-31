@@ -165,7 +165,7 @@ void AGunBase::applyStats()
 	//Adjust Falloff End
 	f_effectiveFalloffEnd= f_falloffEnd * 1.0 + f_falloffEnd * (f_maxRangeMultiplier - 1.0) * (float(i_tempStat)/50);
 	//Adjust Aim Assist Cone
-	f_effectiveAimAssistConeAngle= f_aimAssistConeAngle * 1.0 + f_aimAssistConeAngle * (f_maxAimAssistMultiplier - 1.0) * (float(i_tempStat)/50);
+	f_currentAimAssistConeAngle= f_aimAssistConeAngle * 1.0 + f_aimAssistConeAngle * (f_maxAimAssistMultiplier - 1.0) * (float(i_tempStat)/50);
 
 	//Impact---
 	i_tempStat= (i_impact - 50);

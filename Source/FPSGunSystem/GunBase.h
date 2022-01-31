@@ -180,7 +180,7 @@ public:
 
 	//Applied Aim Assist Cone Angle
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Cone Calculation Variables")
-		float f_effectiveAimAssistConeAngle= 0;
+		float f_currentAimAssistConeAngle= 0;
 
 	//Total Hipfire Cone Angle Float
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Cone Calculation Variables")
