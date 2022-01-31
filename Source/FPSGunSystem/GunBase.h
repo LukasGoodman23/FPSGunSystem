@@ -42,6 +42,10 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "General Variables")
 		struct FVector v_killLocation= FVector(0.0, 0.0, 0.0);
 
+	//Gun Class
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category= "General Variables")
+		FString s_gunClass= FString(TEXT("Primary"));
+
 
 
 	//Ammo Variables

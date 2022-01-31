@@ -15,6 +15,10 @@ public:
 	// Sets default values for this character's properties
 	ABaseCharacter();
 
+	//Name String
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Base Character")
+		FString Name= "Enemy";
+
 	//health Bool
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Base Character")
 		int i_health= 100;
