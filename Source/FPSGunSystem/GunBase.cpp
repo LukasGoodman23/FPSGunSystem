@@ -13,6 +13,10 @@ AGunBase::AGunBase()
 	DefaultSceneRoot= CreateDefaultSubobject<USceneComponent>(TEXT("Default Scene Component"));
 	RootComponent= DefaultSceneRoot;
 
+	//Set Up Base Camera
+	BaseCamera= CreateDefaultSubobject<UCameraComponent>(TEXT("Base Camera"));
+	BaseCamera->SetupAttachment(RootComponent);
+
 	//Set Up Arms
 	Arms= CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("SK_Mannequin_Arms"));
 	Arms->SetupAttachment(RootComponent);

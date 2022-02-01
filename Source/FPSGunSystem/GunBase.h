@@ -236,7 +236,7 @@ public:
 
 	//Number of Aim Assist Tracer Shots
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Cone Calculation Variables")
-		float f_numberOfAimAssitTracerShots= 0;
+		int i_numberOfAimAssitTracerShots= 0;
 
 	//Shot Direction Rotator Struct
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Cone Calculation Variables")
@@ -339,6 +339,23 @@ public:
 
 
 
+
+	//Aim Down Sights Variables
+	//Aim Down Sights Shoulder Rotation Multiplier
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Aim Down Sights Variables")
+		struct FRotator r_adsShoulderRotation= FRotator(0.0f, 0.0f, 0.0f);
+
+	//Aim Down Sights Elbow Rotation Multiplier
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Aim Down Sights Variables")
+		struct FRotator r_adsElbowRotation= FRotator(0.0f, 0.0f, 0.0f);
+
+	//Aim Down Sights Wrist Rotation Multiplier
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Aim Down Sights Variables")
+		struct FRotator r_adsWristRotation= FRotator(0.0f, 0.0f, 0.0f);
+
+
+
+
 	
 	//Perk Variables
 
@@ -392,6 +409,10 @@ public:
 	//ADS Camera
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Components")
 		class UCameraComponent *ADSCamera;
+
+	//Base Camera
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Components")
+		class UCameraComponent *BaseCamera;
 
 	//ADS Shoot Location
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Components")
