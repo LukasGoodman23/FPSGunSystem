@@ -29,14 +29,6 @@ AGunBase::AGunBase()
 	BarrelReferencePoint= CreateDefaultSubobject<USceneComponent>(TEXT("Barrel Reference Point"));
 	BarrelReferencePoint->SetupAttachment(Gun);
 
-	//Set Up ADS Camera
-	ADSCamera= CreateDefaultSubobject<UCameraComponent>(TEXT("ADS Camera"));
-	ADSCamera->SetupAttachment(Gun);
-
-	//Set Up ADS Shot Location
-	ADSShotLocation= CreateDefaultSubobject<UArrowComponent>(TEXT("ADS Shot Location"));
-	ADSShotLocation->SetupAttachment(ADSCamera);
-
 	//Set Up Shot Location
 	ShotLocation= CreateDefaultSubobject<UArrowComponent>(TEXT("Shot Location"));
 	ShotLocation->SetupAttachment(Gun);
