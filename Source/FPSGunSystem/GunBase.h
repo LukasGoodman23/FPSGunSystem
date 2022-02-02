@@ -406,9 +406,17 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Components")
 		class USceneComponent *BarrelReferencePoint;
 
+	//ADS Camera
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Components")
+		class UCameraComponent *ADSCamera;
+
 	//Base Camera
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Components")
 		class UCameraComponent *BaseCamera;
+
+	//ADS Shoot Location
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Components")
+		class UArrowComponent *ADSShotLocation;
 
 	//Shoot Location
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Components")
