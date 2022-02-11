@@ -94,6 +94,10 @@ public:
 
 	//Firing Variables
 
+	//Hit Bone Name
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Variables")
+		FString s_hitBoneName= FString();
+
 	//Fire Rate Float
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Variables")
 		float f_firingRate= 0;
@@ -137,6 +141,10 @@ public:
 	//Applied Damage Int
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Variables")
 		int i_appliedDamage= 0;
+
+	//Headshot Damage Multiplier Int
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Variables")
+		int i_headshotMultiplier= 0;
 
 
 
