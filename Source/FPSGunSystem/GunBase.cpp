@@ -13,6 +13,10 @@ AGunBase::AGunBase()
 	DefaultSceneRoot= CreateDefaultSubobject<USceneComponent>(TEXT("Default Scene Component"));
 	RootComponent= DefaultSceneRoot;
 
+	//Set Up Base Camera
+	BaseCamera= CreateDefaultSubobject<UCameraComponent>(TEXT("Base Camera"));
+	BaseCamera->SetupAttachment(RootComponent);
+
 	//Set Up Arms
 	Arms= CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("SK_Mannequin_Arms"));
 	Arms->SetupAttachment(RootComponent);
@@ -24,14 +28,6 @@ AGunBase::AGunBase()
 	//Set Up Barrel Reference Point
 	BarrelReferencePoint= CreateDefaultSubobject<USceneComponent>(TEXT("Barrel Reference Point"));
 	BarrelReferencePoint->SetupAttachment(Gun);
-
-	//Set Up ADS Camera
-	ADSCamera= CreateDefaultSubobject<UCameraComponent>(TEXT("ADS Camera"));
-	ADSCamera->SetupAttachment(Gun);
-
-	//Set Up ADS Shot Location
-	ADSShotLocation= CreateDefaultSubobject<UArrowComponent>(TEXT("ADS Shot Location"));
-	ADSShotLocation->SetupAttachment(ADSCamera);
 
 	//Set Up Shot Location
 	ShotLocation= CreateDefaultSubobject<UArrowComponent>(TEXT("Shot Location"));
@@ -165,7 +161,7 @@ void AGunBase::applyStats()
 	//Adjust Falloff End
 	f_effectiveFalloffEnd= f_falloffEnd * 1.0 + f_falloffEnd * (f_maxRangeMultiplier - 1.0) * (float(i_tempStat)/50);
 	//Adjust Aim Assist Cone
-	f_effectiveAimAssistConeAngle= f_aimAssistConeAngle * 1.0 + f_aimAssistConeAngle * (f_maxAimAssistMultiplier - 1.0) * (float(i_tempStat)/50);
+	f_currentAimAssistConeAngle= f_aimAssistConeAngle * 1.0 + f_aimAssistConeAngle * (f_maxAimAssistMultiplier - 1.0) * (float(i_tempStat)/50);
 
 	//Impact---
 	i_tempStat= (i_impact - 50);

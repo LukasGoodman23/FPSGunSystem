@@ -42,6 +42,14 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "General Variables")
 		struct FVector v_killLocation= FVector(0.0, 0.0, 0.0);
 
+	//Gun Class
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category= "General Variables")
+		FString s_gunClass= FString(TEXT("Primary"));
+
+	//Gun Damage Type
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "General Variables")
+		FString s_damageType= FString(TEXT("Kinetic"));
+
 
 
 	//Ammo Variables
@@ -90,6 +98,10 @@ public:
 
 	//Firing Variables
 
+	//Hit Bone Name
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Variables")
+		FString s_hitBoneName= FString();
+
 	//Fire Rate Float
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Variables")
 		float f_firingRate= 0;
@@ -134,6 +146,10 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Variables")
 		int i_appliedDamage= 0;
 
+	//Headshot Damage Multiplier Int
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Variables")
+		int i_headshotMultiplier= 0;
+
 
 
 
@@ -176,7 +192,7 @@ public:
 
 	//Applied Aim Assist Cone Angle
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Cone Calculation Variables")
-		float f_effectiveAimAssistConeAngle= 0;
+		float f_currentAimAssistConeAngle= 0;
 
 	//Total Hipfire Cone Angle Float
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Cone Calculation Variables")
@@ -232,11 +248,11 @@ public:
 
 	//Number of Aim Assist Tracer Shots
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Cone Calculation Variables")
-		float f_numberOfAimAssitTracerShots= 0;
+		int i_numberOfAimAssitTracerShots= 0;
 
 	//Shot Direction Rotator Struct
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Cone Calculation Variables")
-		struct FRotator r_shotDirectionRotator = FRotator::ZeroRotator;
+		struct FRotator r_shotDirectionRotator= FRotator::ZeroRotator;
 
 
 
@@ -302,28 +318,82 @@ public:
 
 
 
+	//Recoil Variables
+
+	//Number of Repeated Recoils
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		int i_numberOfRecoils= 0;
+
+	//Shoulder Rotator Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_shoulderRotator= FRotator::ZeroRotator;
+
+	//Elbow Rotator Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_elbowRotator= FRotator::ZeroRotator;
+
+	//Wrist Rotator Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_wristRotator= FRotator::ZeroRotator;
+
+	//Max Shoulder Rotation Multiplier
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_maxShoulderRotation= FRotator(0.0f, 0.0f, 0.0f);
+
+	//Max Elbow Rotation Multiplier
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_maxElbowRotation= FRotator(0.0f, 0.0f, 0.0f);
+
+	//Max Wrist Rotation Multiplier
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_maxWristRotation= FRotator(0.0f, 0.0f, 0.0f);
+
+
+
+
+
+	//Aim Down Sights Variables
+	//Aim Down Sights Shoulder Rotation Multiplier
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Aim Down Sights Variables")
+		struct FRotator r_adsShoulderRotation= FRotator(0.0f, 0.0f, 0.0f);
+
+	//Aim Down Sights Elbow Rotation Multiplier
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Aim Down Sights Variables")
+		struct FRotator r_adsElbowRotation= FRotator(0.0f, 0.0f, 0.0f);
+
+	//Aim Down Sights Wrist Rotation Multiplier
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Aim Down Sights Variables")
+		struct FRotator r_adsWristRotation= FRotator(0.0f, 0.0f, 0.0f);
+
+
+
+
 	
 	//Perk Variables
 
+	//Mod
+	/*UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Perk Variables")
+		class UBasePerk *Archetype;
+
 	//Barrel Perk
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Perk Variables")
-		TSubclassOf<class UBasePerk> BarrelPerk;
+		class UBasePerk *BarrelPerk;
 
 	//Magazine Perk
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Perk Variables")
-		TSubclassOf<class UBasePerk> MagazinePerk;
+		class UBasePerk *MagazinePerk;
 
 	//Final Perk 1
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Perk Variables")
-		TSubclassOf<class UBasePerk> FinalPerk1;
+		class UBasePerk *FinalPerk1;
 
 	//Final Perk 2
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Perk Variables")
-		TSubclassOf<class UBasePerk> FinalPerk2;
+		class UBasePerk *FinalPerk2;
 
 	//Mod
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Perk Variables")
-		TSubclassOf<class UBasePerk> Mod;
+		class UBasePerk *Mod;*/
 
 
 
@@ -348,13 +418,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Components")
 		class USceneComponent *BarrelReferencePoint;
 
-	//ADS Camera
+	//Base Camera
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Components")
-		class UCameraComponent *ADSCamera;
-
-	//ADS Shoot Location
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Components")
-		class UArrowComponent *ADSShotLocation;
+		class UCameraComponent *BaseCamera;
 
 	//Shoot Location
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Components")

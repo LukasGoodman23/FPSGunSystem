@@ -7,7 +7,9 @@
 #include "BasePerk.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+//UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+
+UCLASS(Blueprintable, BlueprintType)
 class FPSGUNSYSTEM_API UBasePerk : public UActorComponent
 {
 	GENERATED_BODY()
