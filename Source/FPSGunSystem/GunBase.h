@@ -314,6 +314,30 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
 		float f_maxImpactMultiplier= 0;
 
+	//Aim Down Sights Time (In Seconds)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
+		float f_adsTime= 1;
+
+	//Applied Aim Down Sights Time (In Seconds)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
+		float f_appliedADSTime= 1;
+
+	//Handling
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
+		int i_handling= 50;
+
+	//Applied Handling
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
+		int i_appliedHandling= 50;
+
+	//Stability
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
+		int i_stability= 50;
+
+	//Applied Stability
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
+		int i_appliedStability= 50;
+
 
 
 

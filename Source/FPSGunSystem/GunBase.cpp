@@ -171,6 +171,12 @@ void AGunBase::applyStats()
 
 	//Explosion Radius
 	i_tempStat= (i_blastRadius - 50);
+
+	//Stability
+	i_appliedStability= i_stability;
+
+	//Handling
+	i_handling= i_appliedHandling;
 }
 
 
@@ -185,7 +191,8 @@ void AGunBase::BeginPlay()
 
 	f_currentTotalConeAngle= f_totalHipfireConeAngle;
 	f_currentTotalADSConeAngle= f_totalADSConeAngle;
-	
+
+	f_appliedADSTime= f_adsTime;
 }
 
 // Called every frame
