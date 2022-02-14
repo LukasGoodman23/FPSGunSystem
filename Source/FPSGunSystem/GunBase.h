@@ -92,6 +92,10 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Boolean Variables")
 		bool b_canRecieveInput= true;
 
+	//Is Used Yet
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Boolean Variables")
+		bool b_usedBefore= false;
+
 
 
 
