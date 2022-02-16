@@ -352,17 +352,29 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
 		int i_numberOfRecoils= 0;
 
-	//Shoulder Rotator Struct
+	//Right Shoulder Rotator Struct
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
-		struct FRotator r_shoulderRotator= FRotator::ZeroRotator;
+		struct FRotator r_rightShoulderRotator= FRotator::ZeroRotator;
 
-	//Elbow Rotator Struct
+	//Right Elbow Rotator Struct
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
-		struct FRotator r_elbowRotator= FRotator::ZeroRotator;
+		struct FRotator r_rightElbowRotator= FRotator::ZeroRotator;
 
-	//Wrist Rotator Struct
+	//Right Wrist Rotator Struct
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
-		struct FRotator r_wristRotator= FRotator::ZeroRotator;
+		struct FRotator r_rightWristRotator= FRotator::ZeroRotator;
+
+	//Left Shoulder Rotator Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_leftShoulderRotator= FRotator::ZeroRotator;
+
+	//Left Elbow Rotator Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_leftElbowRotator= FRotator::ZeroRotator;
+
+	//Left Wrist Rotator Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_leftWristRotator= FRotator::ZeroRotator;
 
 	//Max Shoulder Rotation Multiplier
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
@@ -383,15 +395,28 @@ public:
 	//Aim Down Sights Variables
 	//Aim Down Sights Shoulder Rotation Multiplier
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Aim Down Sights Variables")
-		struct FRotator r_adsShoulderRotation= FRotator(0.0f, 0.0f, 0.0f);
+		struct FRotator r_adsRightShoulderRotation= FRotator(0.0f, 0.0f, 0.0f);
 
 	//Aim Down Sights Elbow Rotation Multiplier
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Aim Down Sights Variables")
-		struct FRotator r_adsElbowRotation= FRotator(0.0f, 0.0f, 0.0f);
+		struct FRotator r_adsRightElbowRotation= FRotator(0.0f, 0.0f, 0.0f);
 
 	//Aim Down Sights Wrist Rotation Multiplier
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Aim Down Sights Variables")
-		struct FRotator r_adsWristRotation= FRotator(0.0f, 0.0f, 0.0f);
+		struct FRotator r_adsRightWristRotation= FRotator(0.0f, 0.0f, 0.0f);
+
+	//Aim Down Sights Variables
+	//Aim Down Sights Shoulder Rotation Multiplier
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Aim Down Sights Variables")
+		struct FRotator r_adsLeftShoulderRotation= FRotator(0.0f, 0.0f, 0.0f);
+
+	//Aim Down Sights Elbow Rotation Multiplier
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Aim Down Sights Variables")
+		struct FRotator r_adsLeftElbowRotation= FRotator(0.0f, 0.0f, 0.0f);
+
+	//Aim Down Sights Wrist Rotation Multiplier
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Aim Down Sights Variables")
+		struct FRotator r_adsLeftWristRotation= FRotator(0.0f, 0.0f, 0.0f);
 
 
 
