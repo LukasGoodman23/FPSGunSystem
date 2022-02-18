@@ -342,6 +342,11 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
 		int i_appliedStability= 50;
 
+	//Zoom
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Gun Stat Calculations")
+		int i_zoom= 50;
+
+
 
 
 
