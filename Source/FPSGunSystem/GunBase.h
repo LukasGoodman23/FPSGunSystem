@@ -152,7 +152,7 @@ public:
 
 	//Headshot Damage Multiplier Int
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Firing Variables")
-		int i_headshotMultiplier= 0;
+		float f_headshotMultiplier= 1.0f;
 
 
 

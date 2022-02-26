@@ -90,7 +90,6 @@ void ABaseCharacter::addMalfeasanceStack()
 void ABaseCharacter::PostEditChangeProperty(FPropertyChangedEvent &PropertyChangedEvent)
 {
 	b_isDead= false;
-	i_health= 100;
 
 	Super::PostEditChangeProperty(PropertyChangedEvent);
 

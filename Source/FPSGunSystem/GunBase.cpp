@@ -140,10 +140,14 @@ void AGunBase::calculateDamageFalloff()
 		//if shot distance is past max, does no damage
 		i_appliedDamage= 0;
 	}
-	else
+	else if (f_shotDistance > f_effectiveFalloffStart)
 	{
 		//if shot distance is past start and before end, do damage with linear falloff
-		i_appliedDamage= FGenericPlatformMath::TruncToInt(i_appliedDamage * (1-((f_shotDistance-f_effectiveFalloffStart)/(f_effectiveFalloffEnd-f_effectiveFalloffStart))));
+		i_appliedDamage= FGenericPlatformMath::TruncToInt(i_baseDamage * (1-((f_shotDistance-f_effectiveFalloffStart)/(f_effectiveFalloffEnd-f_effectiveFalloffStart))));
+	}
+	else
+	{
+		i_appliedDamage= i_baseDamage;
 	}
 }
 
