@@ -26,5 +26,13 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	//Called on Player Melee Ability Activation
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category= "Armor Functions")
+		void onMelee();
+
+	//Called on Player Grenade Ability Activation
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category= "Armor Functions")
+		void onGrenade();
+
 		
 };
