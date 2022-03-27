@@ -52,8 +52,16 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category= "Armor Functions")
 		void onMelee();
 
+	//Called When the Player Deals Melee Damage
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category= "Armor Functions")
+		void onMeleeDamage();
+
 	//Called on Player Grenade Ability Activation
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category= "Armor Functions")
 		void onGrenade();
+
+	//Called When Player Deals Grenade Damage
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category= "Armor Functions")
+		void onGrenadeDamage();
 		
 };
