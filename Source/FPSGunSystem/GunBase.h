@@ -393,6 +393,46 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
 		struct FRotator r_maxWristRotation= FRotator(0.0f, 0.0f, 0.0f);
 
+	//Right Pointer 1 Rotator Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_rightPointerRotator1= FRotator::ZeroRotator;
+
+	//Right Pointer 2 Rotator Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_rightPointerRotator2= FRotator::ZeroRotator;
+
+	//Right Middle 1 Middle Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_rightMiddleRotator1= FRotator::ZeroRotator;
+
+	//Right Middle 2 Middle Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_rightMiddleRotator2= FRotator::ZeroRotator;
+
+	//Right Ring 1 Rotator Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_rightRingRotator1= FRotator::ZeroRotator;
+
+	//Right Ring 2 Rotator Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_rightRingRotator2= FRotator::ZeroRotator;
+
+	//Right Pinky 1 Rotator Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_rightPinkyRotator1= FRotator::ZeroRotator;
+
+	//Right Pinky 2 Rotator Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_rightPinkyRotator2= FRotator::ZeroRotator;
+
+	//Right Thumb 1 Rotator Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_rightThumbRotator1= FRotator::ZeroRotator;
+
+	//Right Thumb 2 Rotator Struct
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Recoil Variables")
+		struct FRotator r_rightThumbRotator2= FRotator::ZeroRotator;
+
 
 
 
